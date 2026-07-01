@@ -130,3 +130,6 @@
     transform: scale(1.03);
   }
 }
+svg{
+  display: inline-block;
+}

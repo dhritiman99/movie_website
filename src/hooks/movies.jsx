@@ -7,7 +7,6 @@ import { useQuery } from "@tanstack/react-query"
         queryKey: ['popular-movies', page],
         queryFn: async () => {
             var res = await axios.get(`/api/movie/popular?page=${page}`)
-
             return res.data
         }
     })

@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Star, Clock, Globe, DollarSign, Loader2, Play, ExternalLink } from "lucide-react"
 import Loading from "@/components/Loading"
+import Movie_Review from "@/components/Movie_Review";
+
 export default function Movie_details() {
     const { id } = useParams()
     const { data: movie, isLoading, isError } = UseMovieDetails(id)
@@ -14,8 +16,6 @@ export default function Movie_details() {
         enabled: false,
     })
     const showTrailer = async (movie) => {
-
-
         try {
             const trailerData = trailer || (await refetch()).data
 
@@ -36,7 +36,7 @@ export default function Movie_details() {
 
     if (isLoading) {
         return (
-            <Loading/>
+            <Loading />
         )
     }
 
@@ -71,7 +71,7 @@ export default function Movie_details() {
                 <div className="absolute inset-0 bg-linear-to-t from-black via-black/30 to-black/0 " />
             </div>
 
-            {/* 🎬 CONTENT */}
+            {/* CONTENT */}
             <div className="relative z-10 max-w-7xl  px-10 pt-32 pb-20">
 
                 <div className="grid lg:grid-cols-3 gap-10 items-start">
@@ -180,6 +180,7 @@ export default function Movie_details() {
 
                     </div>
                 </div>
+                <Movie_Review />
             </div>
         </div>
     )

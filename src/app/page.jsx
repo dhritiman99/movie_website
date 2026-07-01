@@ -4,16 +4,15 @@ import Loading from "@/components/Loading";
 import { Movie_carousel } from "@/components/Movie_carousel";
 import Movie_container from "@/components/Movie_container";
 import MoviePagination from "@/components/MoviePagination";
-import { UseMovieGenre, useTrendingMovies } from "@/hooks/movies";
-import QueryProvider from "@/providers/QueryProvider";
-import { useSearchParams } from "next/navigation";
+import { useTrendingMovies } from "@/hooks/movies";
+
+
 import { useState } from "react";
 
 
 export default function Home() {
   const [page, setPage] = useState(1)
   const {data: movies, isLoading} = useTrendingMovies(page)
-  
   if(isLoading){
     return(
       <Loading/>
